@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from 'src/user/user.entity';
+import { Shortener } from './entities/shortener.entity';
 
 @Module({
     imports: [
@@ -11,7 +12,7 @@ import { User } from 'src/user/user.entity';
             username: 'postgres',
             password: 'postgres',
             database: 'postgres',
-            entities: [User],
+            entities: [User, Shortener],
             synchronize: true
           }),
     ]

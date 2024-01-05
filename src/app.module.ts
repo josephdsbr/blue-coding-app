@@ -7,12 +7,16 @@ import { User } from './user/user.entity';
 import { UserModule } from './user/user.module';
 import { CommonModule } from './common/common.module';
 import { ParserModule } from './parser/parser.module';
+import { ShortenerModule } from './shortener/shortener.module';
+import { ScrapingModule } from './scraping/scraping.module';
 
 @Module({
   imports: [
     UserModule,
     CommonModule,
-    ParserModule
+    ParserModule,
+    ShortenerModule,
+    ScrapingModule
   ],
   controllers: [AppController],
   providers: [AppService],

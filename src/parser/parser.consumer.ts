@@ -1,6 +1,7 @@
 import { Process, Processor } from "@nestjs/bull";
 import { Logger } from "@nestjs/common";
 import { Job } from "bull";
+import { load, CheerioAPI } from 'cheerio'
 
 @Processor("parser")
 export class ParserConsumer {
@@ -8,6 +9,8 @@ export class ParserConsumer {
 
     @Process('file')
     async execute(job: Job<unknown>) {
+        // @ts-ignore
+        const data = load(job.data.file);
         this.logger.log(JSON.stringify(job.data))
     }
 }
