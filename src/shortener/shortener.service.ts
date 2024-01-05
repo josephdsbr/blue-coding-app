@@ -72,7 +72,7 @@ export class ShortenerService {
     }
 
     async findMostVisitedLinks(): Promise<string[]> {
-        return (await this.shortnerRepository.find({ order: { accesses: 'DESC' } }))
+        return (await this.shortnerRepository.find({ order: { accesses: 'DESC' }, take: 100 }))
             .map(entity => this.parser(entity))
     }
 
